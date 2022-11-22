@@ -5,23 +5,14 @@ async function getEnglishDefinitions() {
     const allEnglishObject = await query("SELECT * FROM englishDefinitions");
     return allEnglishObject.rows;
   } 
-//   catch (error) {
-//     throw error;
-//   }
 }
 
 
 async function getEnglishDefinitionByTitle(title) {
-{
-    const allEnglishObject = await query(
-      "SELECT * FROM englishDefinitions WHERE title = $1",
-      [title]
-    );
+
+    const allEnglishObject = await query("SELECT * FROM englishDefinitions WHERE title = $1",[title]);
     return allEnglishObject.rows;
-  } 
-//   catch (error) {
-//     throw error;
-//   }
+  
 }
 
 
@@ -33,9 +24,6 @@ async function updateEnglishDefinition(id, title, definition, example, links, we
         );
         return updateEnglishObject.rows;
     } 
-    // catch (error) {
-    //     throw error;
-    // }
     }
 
 
@@ -47,9 +35,7 @@ async function createEnglishDefinition(title, definition, example, links, week) 
         );
         return createEnglishObject.rows;
     } 
-    // catch (error) {   
-    //     throw error;
-    // }
+
     }
 
 
@@ -61,9 +47,7 @@ async function deleteEnglishDefinition(id) {
     );
     return deleteEnglishObject.rows;
   } 
-//   catch (error) {
-//     throw error;
-//   }
+
 }
 
 
