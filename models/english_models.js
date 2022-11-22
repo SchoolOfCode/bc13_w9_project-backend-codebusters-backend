@@ -10,7 +10,7 @@ async function getEnglishDefinitions() {
 
 async function getEnglishDefinitionByTitle(title) {
 
-    const allEnglishObject = await query("SELECT * FROM englishDefinitions WHERE title = $1",[title]);
+    const allEnglishObject = await query("SELECT * FROM englishDefinitions WHERE title ILIKE $1 ",[title]);
     return allEnglishObject.rows;
   
 }
