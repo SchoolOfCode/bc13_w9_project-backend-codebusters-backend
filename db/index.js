@@ -1,10 +1,15 @@
-const { Pool } = require("pg");
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_CONNECTION_URL,
+import pg from "pg";
+
+const databaseUrl = process.env.DATABASE_URL;
+
+
+const pool = new pg.Pool({
+  connectionString: databaseUrl,
 });
 
-module.exports = {
-  query: function (text, params) {
-    return pool.query(text, params);
-  },
-};
+  
+  export default function query (text, params, callback){
+      return pool.query(text, params, callback);
+    }
+  
+

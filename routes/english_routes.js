@@ -1,4 +1,4 @@
-import { Express } from "express";
+import express from "express";
 const router = express.Router();
 
 import {
@@ -7,7 +7,7 @@ import {
     updateEnglishDefinition,
     createEnglishDefinition,
     deleteEnglishDefinition
-} from "../models/english_models";
+} from "../models/english_models.js";
 
 //const error.message = "Please try again later.";
 
