@@ -1,9 +1,13 @@
-import pg from "pg";
+import pkg from "pg";
 
-const databaseUrl = process.env.DATABASE_URL;
+const {Pool} = pkg
 
 
-const pool = new pg.Pool({
+
+const databaseUrl = process.env.POSTGRES_CONNECTION_URL;
+
+
+const pool = new Pool({
   connectionString: databaseUrl,
 });
 

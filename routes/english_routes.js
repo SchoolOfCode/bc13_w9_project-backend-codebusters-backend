@@ -12,10 +12,10 @@ import {
 //const error.message = "Please try again later.";
 
 router.get("/", async (req, res) => {
-    {
+    console.log("here?")
         const allEnglishObject = await getEnglishDefinitions();
         return res.json({success:true, payload: allEnglishObject});
-    } 
+    
     
     // catch (error) {
     //     res.status(500).json({ error: error.message });
