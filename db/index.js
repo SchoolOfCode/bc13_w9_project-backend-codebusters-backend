@@ -7,7 +7,7 @@ const {Pool} = pkg
 const databaseUrl = process.env.POSTGRES_CONNECTION_URL;
 
 
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: databaseUrl,
 });
 
