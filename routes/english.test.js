@@ -78,6 +78,25 @@ test("DELETE an object by id", async function () {
     })
 })
 
+test("EDIT an object by id", async function () {
+    const response = await (await request(app).patch("/api/englishDefinitions/1").send({ title: 'test patch', definition: 'test patch', example: 'test patch', links: 'test patch', week: 5 }))
+    expect(response.status).toEqual(200)
+
+    console.log(response.body)
+
+    expect(response.body).toStrictEqual({
+        success: true,
+        payload: [{
+            id: 1,
+            title: 'test patch',
+            definition: 'test patch',
+            example: 'test patch',
+            links: 'test patch',
+            week: 5
+        }]
+    })
+})
+
 afterAll(() => {
     return resetTweetsTable();
 });
