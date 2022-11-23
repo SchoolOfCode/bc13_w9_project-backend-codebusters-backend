@@ -6,7 +6,8 @@ import {
     getGermanDefinitionByTitle,
     updateGermanDefinition,
     createGermanDefinition,
-    deleteGermanDefinition
+    deleteGermanDefinition,
+    getGermanDefinitionByEnglishTitle
 } from "../models/german_models.js";
 
 
@@ -21,8 +22,14 @@ germanRouter.get("/:title", async (req, res) => {
    
         const germanObject = await getGermanDefinitionByTitle(req.params.title);
         return res.json({success:true, payload: germanObject});
-    
+})
 
+germanRouter.get("/english/:title", async (req, res) => {
+    console.log(req.params.title)
+    const germanObject = await getGermanDefinitionByEnglishTitle(req.params.title);
+    console.log(germanObject)
+        if (germanObject.success = true){
+                return res.json({success:true, payload: germanObject})};
 })
 
 

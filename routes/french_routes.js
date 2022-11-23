@@ -6,7 +6,8 @@ import {
     getFrenchDefinitionByTitle,
     updateFrenchDefinition,
     createFrenchDefinition,
-    deleteFrenchDefinition
+    deleteFrenchDefinition,
+    getFrenchDefinitionByEnglishTitle
 } from "../models/french_models.js";
 
 
@@ -22,8 +23,16 @@ frenchRouter.get("/:title", async (req, res) => {
         const frenchObject = await getFrenchDefinitionByTitle(req.params.title);
         return res.json({success:true, payload: frenchObject});
     
+})
+
+frenchRouter.get("/english/:title", async (req, res) => {
+   
+    const frenchObject = await getFrenchDefinitionByEnglishTitle(req.params.title);
+    return res.json({success:true, payload: frenchObject});
 
 })
+
+
 
 
 frenchRouter.post("/", async (req, res) => {

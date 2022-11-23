@@ -15,6 +15,13 @@ async function getFrenchDefinitionByTitle(title) {
   
 }
 
+async function getFrenchDefinitionByEnglishTitle(englishtitle) {
+
+  const allFrenchObject = await query("SELECT * FROM frenchDefinitions WHERE englishtitle ILIKE '%'||$1||'%'",[englishtitle]);
+  return allFrenchObject.rows;
+
+}
+
 
 async function updateFrenchDefinition(id, title, definition, example, links, week){
     {
@@ -56,5 +63,6 @@ export {
     getFrenchDefinitionByTitle,
     updateFrenchDefinition,
     createFrenchDefinition,
-    deleteFrenchDefinition
+    deleteFrenchDefinition,
+    getFrenchDefinitionByEnglishTitle
 }
