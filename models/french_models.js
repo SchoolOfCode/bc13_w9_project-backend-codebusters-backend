@@ -23,22 +23,21 @@ async function getFrenchDefinitionByEnglishTitle(englishtitle) {
 }
 
 
-async function updateFrenchDefinition(id, title, definition, example, links, week){
+async function updateFrenchDefinition(id, englishtitle, title, definition, example, links, week){
     {
         const updateFrenchObject = await query(
-        "UPDATE frenchDefinitions SET title = $2, definition = $3, example = $4, links = $5, week = $6 WHERE id = $1 RETURNING *;",
-        [id, title, definition, example, links, week]
+        "UPDATE frenchDefinitions SET englishtitle = $2, title = $3, definition = $4, example = $5, links = $6, week = $7 WHERE id = $1 RETURNING *;",
+        [id, englishtitle, title, definition, example, links, week]
         );
         return updateFrenchObject.rows;
     } 
     }
 
-
-async function createFrenchDefinition(title, definition, example, links, week) {
+async function createFrenchDefinition(englishtitle, title, definition, example, links, week) {
     {
         const createFrenchObject = await query(
-        "INSERT INTO frenchDefinitions (title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;",
-        [title, definition, example, links, week]
+        "INSERT INTO frenchDefinitions (englishtitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
+        [englishtitle, title, definition, example, links, week]
         );
         return createFrenchObject.rows;
     } 

@@ -23,28 +23,25 @@ async function getGermanDefinitionByEnglishTitle(englishtitle) {
 }
 
 
-async function updateGermanDefinition(id, title, definition, example, links, week){
+async function updateGermanDefinition(id, englishtitle, title, definition, example, links, week){
     {
         const updateGermanObject = await query(
-        "UPDATE germanDefinitions SET title = $2, definition = $3, example = $4, links = $5, week = $6 WHERE id = $1 RETURNING *;",
-        [id, title, definition, example, links, week]
+        "UPDATE germanDefinitions SET englishtitle = $2, title = $3, definition = $4, example = $5, links = $6, week = $7 WHERE id = $1 RETURNING *;",
+        [id, englishtitle, title, definition, example, links, week]
         );
         return updateGermanObject.rows;
     } 
     }
 
-
-async function createGermanDefinition(title, definition, example, links, week) {
+async function createGermanDefinition(englishtitle, title, definition, example, links, week) {
     {
         const createGermanObject = await query(
-        "INSERT INTO germanDefinitions (title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;",
-        [title, definition, example, links, week]
+        "INSERT INTO germanDefinitions (englishtitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
+        [englishtitle, title, definition, example, links, week]
         );
         return createGermanObject.rows;
     } 
-
     }
-
 
 async function deleteGermanDefinition(id) {
   {
