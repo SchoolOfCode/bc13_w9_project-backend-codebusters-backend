@@ -79,5 +79,9 @@ test("DELETE an object by id", async function () {
 })
 
 afterAll(() => {
+    return resetTweetsTable();
+});
+    
+afterAll(() => {
     pool.end();
 });
