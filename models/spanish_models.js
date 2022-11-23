@@ -1,5 +1,4 @@
 import query  from "../db/index.js";
-import { getEnglishDefinitionByTitle } from "./english_models.js";
 
 async function getSpanishDefinitions() {
   {
@@ -24,26 +23,25 @@ async function getSpanishDefinitionByTitle(title) {
 }
 
 
-async function updateSpanishDefinition(id, englishTitle, title, definition, example, links, week){
+async function updateSpanishDefinition(id, englishtitle, title, definition, example, links, week){
     {
         const updateSpanishObject = await query(
-        "UPDATE spanishDefinitions SET englishTitle = $2, title = $3, definition = $4, example = $5, links = $6, week = $7 WHERE id = $1 RETURNING *;",
-        [id, title, definition, example, links, week]
+        "UPDATE spanishDefinitions SET englishtitle = $2, title = $3, definition = $4, example = $5, links = $6, week = $7 WHERE id = $1 RETURNING *;",
+        [id, englishtitle, title, definition, example, links, week]
         );
         return updateSpanishObject.rows;
     } 
     }
 
 
-async function createSpanishDefinition(englishTitle, title, definition, example, links, week) {
+async function createSpanishDefinition(englishtitle, title, definition, example, links, week) {
     {
         const createSpanishObject = await query(
-        "INSERT INTO spanishDefinitions (englishTitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
-        [englishTitle, title, definition, example, links, week]
+        "INSERT INTO spanishDefinitions (englishtitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
+        [englishtitle, title, definition, example, links, week]
         );
         return createSpanishObject.rows;
     } 
-
     }
 
 
