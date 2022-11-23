@@ -6,7 +6,8 @@ import {
     getSpanishDefinitionByTitle,
     updateSpanishDefinition,
     createSpanishDefinition,
-    deleteSpanishDefinition
+    deleteSpanishDefinition,
+    getSpanishDefinitionByEnglishTitle
 } from "../models/spanish_models.js";
 
 
@@ -25,6 +26,14 @@ console.log(spanishObject)
         //     return res.json({success:true, payload: englishObject})};
         if (spanishObject.success = true){
             return res.json({success:true, payload: spanishObject})};
+})
+
+spanishRouter.get("/english/:title", async (req, res) => {
+        console.log(req.params.title)
+        const englishObject = await getSpanishDefinitionByEnglishTitle(req.params.title);
+        console.log(englishObject)
+        if (englishObject.success = true){
+                return res.json({success:true, payload: englishObject})};
 })
 // else {
 //     spanishRouter.get("/:title", async (req, res) => {
