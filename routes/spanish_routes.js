@@ -45,7 +45,7 @@ spanishRouter.get("/english/:title", async (req, res) => {
 
 
 spanishRouter.post("/", async (req, res) => {
-        const createSpanishObject = await createSpanishDefinition(req.body.englishTitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const createSpanishObject = await createSpanishDefinition(req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: createSpanishObject});
     
 
@@ -53,7 +53,7 @@ spanishRouter.post("/", async (req, res) => {
 
 
 spanishRouter.patch("/:id", async (req, res) => {
-        const updateSpanishObject = await updateSpanishDefinition(req.params.id, req.body.englishTitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const updateSpanishObject = await updateSpanishDefinition(req.params.id, req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: updateSpanishObject});
     
 })
