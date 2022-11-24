@@ -37,7 +37,7 @@ frenchRouter.get("/english/:title", async (req, res) => {
 
 frenchRouter.post("/", async (req, res) => {
  {
-        const createFrenchObject = await createFrenchDefinition(req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const createFrenchObject = await createFrenchDefinition(req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: createFrenchObject});
     } 
 
@@ -46,7 +46,7 @@ frenchRouter.post("/", async (req, res) => {
 
 frenchRouter.patch("/:id", async (req, res) => {
    {
-        const updateFrenchObject = await updateFrenchDefinition(req.params.id, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const updateFrenchObject = await updateFrenchDefinition(req.params.id, req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: updateFrenchObject});
     } 
 

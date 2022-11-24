@@ -35,7 +35,7 @@ germanRouter.get("/english/:title", async (req, res) => {
 
 germanRouter.post("/", async (req, res) => {
  {
-        const createGermanObject = await createGermanDefinition(req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const createGermanObject = await createGermanDefinition(req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: createGermanObject});
     } 
 
@@ -44,7 +44,7 @@ germanRouter.post("/", async (req, res) => {
 
 germanRouter.patch("/:id", async (req, res) => {
    {
-        const updateGermanObject = await updateGermanDefinition(req.params.id, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
+        const updateGermanObject = await updateGermanDefinition(req.params.id, req.body.englishtitle, req.body.title, req.body.definition, req.body.example, req.body.links, req.body.week);
         return res.json({success:true, payload: updateGermanObject});
     } 
 

@@ -33,17 +33,15 @@ async function updateFrenchDefinition(id, englishtitle, title, definition, examp
     } 
     }
 
-async function createFrenchDefinition(englishtitle, title, definition, example, links, week) {
-    {
-        const createFrenchObject = await query(
-        "INSERT INTO frenchDefinitions (englishtitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
-        [englishtitle, title, definition, example, links, week]
-        );
-        return createFrenchObject.rows;
-    } 
-
-    }
-
+    async function createFrenchDefinition(englishtitle, title, definition, example, links, week) {
+      {
+          const createFrenchObject = await query(
+          "INSERT INTO frenchDefinitions (englishtitle, title, definition, example, links, week) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
+          [englishtitle, title, definition, example, links, week]
+          );
+          return createFrenchObject.rows;
+      } 
+      }
 
 async function deleteFrenchDefinition(id) {
   {
